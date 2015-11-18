@@ -3,4 +3,4 @@ test:
       - python test.py
 notify:
   webhooks:
-    - url: http://ec2-52-24-182-101.us-west-2.compute.amazonaws.com/circleci/webhook
+    - url: http://ec2-52-24-182-101.us-west-2.compute.amazonaws.com/circleci/webhook/
