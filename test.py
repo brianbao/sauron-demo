@@ -4,4 +4,4 @@ if random.random() < 0.5:
     print 'Fail!!'
     exit(1)
 
-# test7
+# test8
