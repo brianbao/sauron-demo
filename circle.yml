@@ -1,3 +1,8 @@
+general:
+  branches:
+    only:
+      - master
+
 test:
   override:
       - python test.py
