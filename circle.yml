@@ -10,3 +10,9 @@ test:
 notify:
   webhooks:
     - url: https://sauron-ui-elb-824878459.us-west-2.elb.amazonaws.com/circleci/webhook/
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
