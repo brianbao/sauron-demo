@@ -5,8 +5,8 @@ general:
 
 test:
   override:
-      - python test.py
+    - python test.py
 
 notify:
   webhooks:
-      - url: https://sauron-ui-elb-824878459.us-west-2.elb.amazonaws.com/circleci/webhook/
+    - url: https://sauron-ui-elb-824878459.us-west-2.elb.amazonaws.com/circleci/webhook/
