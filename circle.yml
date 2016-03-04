@@ -1,0 +1,18 @@
+general:
+  branches:
+    only:
+      - master
+
+test:
+  override:
+    - python test.py
+
+notify:
+  webhooks:
+    - url: https://sauron.zncloud.net/circleci/webhook/
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
