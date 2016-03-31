@@ -5,7 +5,7 @@ general:
 
 test:
   override:
-    - python test.py
+    - ci.sh 
 
 notify:
   webhooks:
