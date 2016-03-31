@@ -7,4 +7,6 @@
 # INDEX - the index of this build node
 # EXTRA - arbitrary string, whatever requester passed into the CI argument
 
-echo 'yay, this test always succeeds'
+./batching-parser.py
+./batching-merger.sh
+./test.py
