@@ -5,7 +5,7 @@ general:
 
 test:
   override:
-    - ci.sh 
+    - bash ci.sh 
 
 notify:
   webhooks:
