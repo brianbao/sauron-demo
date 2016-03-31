@@ -1,3 +1,5 @@
-#!/usr/bin/env python
+import sys
+import os
 
-print True
+if os.environ.get('AFFECTED_ONLY') == 'false':
+	sys.exit(1)
