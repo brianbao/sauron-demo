@@ -3,4 +3,5 @@
 import sys
 import os
 
-print 'hello world'
+if os.environ.get('AFFECTED_ONLY') == 'false':
+	sys.exit(1)
