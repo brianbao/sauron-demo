@@ -7,6 +7,9 @@
 # INDEX - the index of this build node
 # EXTRA - arbitrary string, whatever requester passed into the CI argument
 
+git config --gloabl user.email 'bah'
+git config --gloabl user.name 'humbug'
+
 ./batching-parser.py
 ./batching-merger.sh
 ./test.py
