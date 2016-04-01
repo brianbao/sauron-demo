@@ -1,3 +1,6 @@
 #!/usr/bin/env python
 
-print True
+import sys
+import os
+
+print 'hello world'
