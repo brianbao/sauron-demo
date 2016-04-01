@@ -3,4 +3,5 @@
 import sys
 import os
 
-print 'hello world'
+print 'hello friends'
+sys.exit(0)
