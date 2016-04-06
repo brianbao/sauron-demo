@@ -3,5 +3,5 @@
 import sys
 import os
 
-print 'hello friends'
-sys.exit(0)
+if os.environ.get('AFFECTED_ONLY') == 'true':
+	sys.exit(1)
