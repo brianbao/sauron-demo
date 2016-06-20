@@ -132,3 +132,4 @@ diff_processor:
     strings_to_check:
       check_deleted:
         - 'this string does not exist'
+
