@@ -1,6 +1,6 @@
 # TODO(bbao): Think of better way than to copy paste from yourPeople3.
 initial_state: CodeReviewState
-merged_state: MergedState
+merged_state: ManualGateState
 
 state_machine:
   CodeReviewState:
@@ -38,11 +38,19 @@ state_machine:
     status_checks:
       - merged: null
     on_success:
-      transition_state: MergedState
+      transition_state: ManualGateState
     on_failure:
       transition_state: CodeReviewState
 
-  MergedState:
+  ManualGateState:
+    status_checks:
+     - manual-gate: null
+    on_success:
+      transition_state: EndState
+    on_failure:
+      transition_state: EndState
+      
+  EndState:
     status_checks: []
     on_success:
       transition_state: null
