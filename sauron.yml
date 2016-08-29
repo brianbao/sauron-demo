@@ -1,0 +1,85 @@
+initial_state: CodeReviewState
+merged_state: QueuedState
+
+state_machine:
+  CodeReviewState:
+    status_checks:
+      - merge-label:
+          label_name: 'SAURON-BOT: Merge It!'
+    hotfix: true
+    skip-ci: true
+    on_success:
+      transition_state: QueuedState
+    on_failure:
+      transition_state: CodeReviewState
+
+  QueuedState:
+    status_checks:
+      - merged: null
+    on_success:
+      transition_state: FrodoState
+    on_failure:
+      transition_state: CodeReviewState
+
+  MergedState:
+    status_checks:
+      - circleci-master: null
+    on_success:
+      transition_state: ValidationState
+    on_failure:
+      transition_state: ValidationState
+
+  FrodoState:
+    status_checks:
+      - frodo: null
+    on_success:
+      transition_state: IntegrationTestState
+    on_failure:
+      transition_state: IntegrationTestState
+
+  IntegrationTestState:
+    status_checks:
+      - mordor-glue: null
+      - mordor-canary: null
+    on_success:
+      transition_state: ValidationState
+    on_failure:
+      transition_state: ValidationState
+    mordor:
+      mordor-glue:
+        parallelism: 5
+      mordor-canary:
+        parallelism: 10
+        
+  ValidationState:
+    status_checks:
+      - sentry-frontend-beta: null
+      - sentry-backend-beta: null
+      - sumologic-5xx: null
+    on_success:
+      transition_state: null
+    on_failure:
+      transition_state: null
+
+hotfix:
+  approved_team_names:
+    - Infrastructure
+    - Hotfix Approvers
+  master-hotfix:
+    branch_name: master
+    label_name: 'HOTFIX: Master Merge'
+    on_success:
+      transition_state: QueuedState
+    on_failure:
+      transition_state: CodeReviewState
+  production-hotfix:
+    branch_name: production
+    label_name: 'HOTFIX: Production Merge'
+    on_success:
+      transition_state: QueuedState
+    on_failure:
+      transition_state: CodeReviewState
+
+skip-ci:
+  min_char_length: 10
+  transition_state: QueuedState
