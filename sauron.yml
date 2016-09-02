@@ -203,5 +203,5 @@ diff_processor:
       label:
         label_name: 'App Suite: abc'
     included_paths:
-      - changes
+      test_diff_processor
     min_percentage: 70
