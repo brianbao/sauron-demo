@@ -1,4 +1,5 @@
 end_state: EndState
+
 state_machine:
   EndState:
     status_checks: []
