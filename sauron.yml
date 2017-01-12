@@ -136,7 +136,6 @@ rule_engine:
         label_name: 'C++ Change'
     file_types:
       - .cpp
-    min_files: 1
   java:
     actions:
       pr_comment:
