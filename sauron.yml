@@ -136,7 +136,6 @@ rule_engine:
         label_name: 'C++ Change'
     file_types:
       - .cpp
-    min_files: 1
   java:
     actions:
       pr_comment:
@@ -217,7 +216,7 @@ diff_processor:
       label:
         label_name: 'App Suite: Abc'
     included_paths:
-      - changes/test_diff_processor.txt
+      changes/test_diff_processor.txt
     min_percentage: 70
   resource_ownership:
     resource_to_check:
